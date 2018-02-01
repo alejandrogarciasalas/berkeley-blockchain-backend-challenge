@@ -1,5 +1,26 @@
 import sys
 
+# this is it's own function because it's easier to test, it's more reusable
+# and has a better API (returns a boolean instead of an arbitrary string)
+def brackets_match(s):
+    left_brackets = '({['
+    right_brackets = ')}]'
+
+    stack = []
+
+    for char in s:
+        if char in left_brackets:
+            stack.append(char)
+        elif char in right_brackets:
+            if not stack:
+                return False
+            if right_brackets.index(char) != left_brackets.index(stack.pop()):
+                return False
+    if not stack:
+        return True
+    else:
+        return False
+
 def isBalanced(s):
     """
     A bracket is considered to be any one of the following characters:
@@ -28,7 +49,7 @@ def isBalanced(s):
     is balanced. If a string is balanced, print YES on a new line; otherwise,
     print NO on a new line.
     """
-
+    return "YES" if brackets_match(s) else "NO"
 
 if __name__ == "__main__":
     t = int(input().strip())

@@ -9,4 +9,21 @@
 # Given numerator = 5, denominator = 2, return "2.5".
 
 def divide(numerator, denominator):
-    continue
+	n, remainder = divmod(abs(numerator), abs(denominator))
+	if numerator * denominator < 0:
+		sign = '-'
+	else:
+		sign = ''
+
+	result = [sign + str(n), '.']
+	stack = []
+	while remainder not in stack:
+		stack.append(remainder)
+		n, remainder = divmod(remainder * 10, abs(denominator))
+		result.append(str(n))
+
+	idx = stack.index(remainder)
+	result.insert(idx + 2, '(')
+	result.append(')')
+
+	return ''.join(result).replace('(0)', '').rstrip('.')
