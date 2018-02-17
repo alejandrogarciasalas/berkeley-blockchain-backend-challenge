@@ -1,6 +1,12 @@
 # Blockchain at Berkeley - Back-End Developer Challenges Submission
 
-TODO
+Code for merkle tree is a little hacky. Passed all tests but did not had time to write any custom tests :(. I also solved the front-end challenge so I had to balance my time!
+
+# Style 
+Code follows [pep8](https://www.python.org/dev/peps/pep-0008/) style guide!
+
+# Potential Improvements
+merkle tree is messy and could be better, I am essentially rebuilding parts of the tree for my solution.. I was in a rush so did not have too much time to improve it :/
 
 # Original Challenge Question
 
